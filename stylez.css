@@ -1,15 +1,88 @@
-/* Updated Gradient Background with Yellow */
-body {
+/* General styles */
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
     font-family: 'Yatra One', sans-serif;
+    background: linear-gradient(135deg, #FFCC00, #FF9900, #FF6600);
     color: white;
-    background: linear-gradient(135deg, #fbc02d, #f57f17, #0f2027, #203a43); /* Gradient with yellow */
-    background-attachment: fixed;
-    overflow-y: auto; /* Enable scrolling */
+    overflow: hidden;
 }
 
-/* Remove the black overlay */
+/* Add falling particles animation */
+@keyframes fall {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(100vh);
+    }
+}
+
+.falling-particle {
+    position: fixed;
+    top: 0;
+    width: 5px;
+    height: 5px;
+    background-color: yellow;
+    animation: fall 2s infinite ease-in;
+    pointer-events: none;
+}
+
+.falling-particle:nth-child(odd) {
+    animation-duration: 3s;
+}
+
+/* Gradient background styling */
+body {
+    background: linear-gradient(135deg, #FFCC00, #FF9900, #FF6600);
+    position: relative;
+}
+
+/* Styling for iframe to take up full screen */
+iframe {
+    width: 100%;
+    height: 100vh;
+    border: none;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Centering content */
+.centered-text {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.small-centered-text {
+    font-size: 10px;
+    text-align: center;
+}
+
+.indented {
+    margin-left: 20px;
+}
+
+.indented2 {
+    margin-left: 40px;
+}
+
+/* Style for collapsing sections */
+details {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+/* Remove the black overlay - Not needed now */
 body::before {
     content: '';
     position: fixed;
@@ -17,26 +90,8 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: none; /* Removed overlay */
-    z-index: 2;
-}
-
-/* iframe styling */
-iframe {
-    width: 100%;
-    height: 100vh;
-    border: none;
-    position: relative;
-    z-index: 3; /* Ensure iframe is on top */
-}
-
-/* Falling Particles effect */
-#particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
+    background: url('data:image/jpeg;base64,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') center/cover no-repeat;
+    filter: brightness(50%);
     z-index: 1;
+    pointer-events: none;
 }
