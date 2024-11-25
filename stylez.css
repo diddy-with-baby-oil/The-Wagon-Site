@@ -15,8 +15,13 @@ body {
     font-family: 'Yatra One', sans-serif;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     position: relative;
+}
+
+/* Ensure scrolling is allowed */
+html, body {
+    overflow: auto; /* Allow vertical scrolling */
+    height: 100%;
 }
 
 /* Content styling */
@@ -67,15 +72,16 @@ details:hover {
     border-radius: 10px;
     padding: 20px;
     margin: 15px auto;
-    max-width: 800px;
+    max-width: 90%; /* Reduce card width for better fit */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
     position: relative;
     z-index: 2;
     transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden; /* Prevent overflowing content */
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: scale(1.01); /* Slight zoom-in to avoid overflowing the screen */
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.8);
 }
 
