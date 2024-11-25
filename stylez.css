@@ -1,80 +1,123 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap');
-@import url('https://discordstyles.github.io/FrostedGlass/dist/FrostedGlass.css');
-@import url('https://discordstyles.github.io/Addons/windows-titlebar.css');
 
 :root {
-    --background-image: url('https://i.imgur.com/EoXjMYQ.png'); /* Crimson background */
-    --background-image-blur: 0px;
-    --background-image-size: cover;
-    --background-image-position: center;
-    --popout-image: var(--background-image);
-    --popout-image-blur: 5px;
-    --popout-image-size: cover;
-    --popout-image-position: center;
-    --overlay-image: var(--background-image);
-    --overlay-image-blur: 5px;
-    --overlay-image-size: cover;
-    --overlay-image-position: center;
-    --home-button-image: url('https://gibbu.github.io/BetterDiscord-Themes/FrostedGlass/assets/discord.svg');
-    --home-button-size: cover;
-    --home-button-position: center;
-    --serverlist-brightness: 0.8;
-    --left-brightness: 0.8;
-    --middle-brightness: 0.66;
-    --right-brightness: 0;
-    --overlay-brightness: 0.8;
-    --gradient-primary: 103,58,183; /* Crimson gradient */
-    --gradient-secondary: 63,81,181; /* Slightly darker crimson */
-    --link-colour: #00B0F4; /* Adjust link colors */
-    --scrollbar-colour: rgb(255,255,255,0.05);
-    --gradient-direction: 320deg;
-    --tint-colour: 0,0,0;
-    --tint-brightness: 0.1;
-    --font: Poppins;
-    --window-padding: 0px;
-    --window-roundness: 0px;
-    --update-notice-1: none;
+    --primary-color: #000000; /* Black */
+    --secondary-color: #d4af37; /* Gold */
+    --highlight-color: #ffdd55; /* Brighter gold for hover */
+    --text-color: #ffffff; /* White for better contrast */
+    --sidebar-width: 250px;
+    --font-family: 'Poppins', sans-serif;
 }
 
-/* Additional Site Styling */
-body {
-    font-family: 'Poppins', sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background: var(--background-image);
-    background-size: var(--background-image-size);
-    background-position: var(--background-image-position);
-    color: white;
+    box-sizing: border-box;
 }
 
-/* Iframe Styling */
-iframe {
-    width: 100%;
-    height: 100vh;
-    border: none;
-    z-index: 1;
+body {
+    font-family: var(--font-family);
+    background: var(--primary-color);
+    color: var(--text-color);
+    display: flex;
+    min-height: 100vh;
 }
 
-/* Falling Particles Canvas */
-canvas#particles {
+.sidebar {
+    width: var(--sidebar-width);
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
     position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    pointer-events: none;
+    height: 100%;
 }
 
-/* Hyperlink Customization */
-a {
-    color: var(--link-colour);
+.sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sidebar a {
+    display: block;
     text-decoration: none;
-    border: 2px solid white;
+    color: var(--primary-color);
+    background: transparent;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    width: 90%;
+    text-align: center;
+}
+
+.sidebar a:hover {
+    background: var(--highlight-color);
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.sidebar a.active {
+    background: var(--highlight-color);
+    color: var(--primary-color);
+}
+
+.content {
+    margin-left: var(--sidebar-width);
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1, h2, h3, h4 {
+    color: var(--highlight-color);
+}
+
+button, input, textarea {
+    border: 2px solid var(--secondary-color);
+    background: var(--primary-color);
+    color: var(--text-color);
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover, input:focus, textarea:focus {
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 10px var(--highlight-color);
+    outline: none;
+}
+
+.highlight {
+    background: var(--highlight-color);
+    color: var(--primary-color);
     padding: 5px 10px;
     border-radius: 5px;
-    transition: all 0.3s ease;
+    font-weight: bold;
 }
 
-a:hover {
-    background: white;
-    color: var(--gradient-primary);
+.footer {
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+.sidebar .footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.sidebar .footer a:hover {
+    color: var(--highlight-color);
 }
