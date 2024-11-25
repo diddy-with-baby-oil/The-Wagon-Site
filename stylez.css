@@ -1,24 +1,36 @@
-@font-face {
-    font-family: 'Yatra One';
-    src: url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
-}
-
-@font-face {
-    font-family: 'Eagle Lake';
-    src: url('https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap');
-}
-
+/* Updated Gradient Background with Yellow */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Yatra One', sans-serif;
     color: white;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Dynamic gradient */
+    background: linear-gradient(135deg, #fbc02d, #f57f17, #0f2027, #203a43); /* Gradient with yellow */
     background-attachment: fixed;
     overflow-y: auto; /* Enable scrolling */
 }
 
-/* Add falling particle container */
+/* Remove the black overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none; /* Removed overlay */
+    z-index: 2;
+}
+
+/* iframe styling */
+iframe {
+    width: 100%;
+    height: 100vh;
+    border: none;
+    position: relative;
+    z-index: 3; /* Ensure iframe is on top */
+}
+
+/* Falling Particles effect */
 #particles {
     position: fixed;
     top: 0;
@@ -27,89 +39,4 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 1;
-}
-
-/* Gradient overlay */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
-    z-index: 2;
-}
-
-/* Content styling */
-h1, h2, h3, h4, h5, h6, p {
-    position: relative;
-    z-index: 3;
-}
-
-h1 {
-    font-family: 'Eagle Lake', serif;
-    font-size: 2.5rem;
-    color: #f4a261; /* Golden-yellow text */
-    text-align: center;
-    margin-top: 20px;
-}
-
-h2, h3 {
-    color: #e9c46a;
-}
-
-p {
-    line-height: 1.6;
-    font-size: 1rem;
-    margin: 20px;
-}
-
-/* Links */
-a {
-    color: #f4a261;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-a:hover {
-    color: #e76f51;
-}
-
-/* Navigation bar */
-header {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 4;
-    display: flex;
-    justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-}
-
-header a {
-    margin: 0 15px;
-    color: #e9c46a;
-    font-size: 1.2rem;
-}
-
-footer {
-    background: rgba(0, 0, 0, 0.8);
-    text-align: center;
-    padding: 10px;
-    color: #e9c46a;
-    position: sticky;
-    bottom: 0;
-    z-index: 4;
-}
-
-/* Details styling */
-details {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
-    color: white;
-    z-index: 3;
 }
