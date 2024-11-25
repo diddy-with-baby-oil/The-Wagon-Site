@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>Cloaking...</title>
+    <title>Crimson Cloaking...</title>
     <link rel="icon" type="image/x-icon" href="..\Images\Drifter.png">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
@@ -70,43 +70,7 @@
         animateParticles();
     </script>
 
-    <!-- Your iframe content -->
+    <!-- Main content -->
     <iframe src="https://diddy-with-baby-oil.github.io/The-Wagon-Site/Pages/Home.html"></iframe>
-
-    <script>
-        const htmlContent = `
-            <!DOCTYPE HTML>
-            <html lang="en">
-            <head>
-                <title>New Tab</title>
-                <link rel="stylesheet" type="text/css" href="styles.css">
-                <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
-                <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <style>
-                    html, body {
-                        height: 100%;
-                        margin: 0;
-                    }
-                    iframe {
-                        width: 100%;
-                        height: 100vh;
-                        border: none;
-                    }
-                </style>
-            </head>
-            <body>
-                <iframe src="https://diddy-with-baby-oil.github.io/The-Wagon-Site/Pages/Home.html"></iframe>
-            </body>
-            </html>
-        `;
-        const blob = new Blob([htmlContent], { type: 'text/html' });
-        const url = URL.createObjectURL(blob);
-        window.location.replace(url);
-        setTimeout(function() {
-            window.location.replace(url);
-        }, 3000);
-    </script>
 </body>
 </html>
