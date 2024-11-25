@@ -26,10 +26,23 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/jpeg;base64,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') center/cover no-repeat;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)), 
+                url('data:image/jpeg;base64,/9j/...') center/cover no-repeat;
     filter: brightness(50%);
     z-index: 1;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
     pointer-events: none;
+}
+
+/* Add fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 /* Content styling */
@@ -39,6 +52,13 @@ h1, h2, h3, h4, h5, h6, p {
     padding: 0;
     position: relative;
     z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+p {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
 }
 
 /* Add smooth scrolling for links */
@@ -46,22 +66,36 @@ html {
     scroll-behavior: smooth;
 }
 
-p {
-    line-height: 1.6;
-    font-size: 1rem;
-}
-
+/* Enhanced details styling */
 details {
     background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 5px;
     padding: 10px;
     margin: 10px 0;
     color: white;
     position: relative;
     z-index: 2;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+details:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* Hide certain elements */
 searchi {
     display: none;
+}
+
+/* Styling for links */
+a {
+    color: #f4a261;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #e76f51;
 }
