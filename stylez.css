@@ -2,13 +2,13 @@
 html, body {
     height: 100%;
     margin: 0;
-    font-family: 'Yatra One', sans-serif;
-    background: linear-gradient(135deg, #FFCC00, #FF9900, #FF6600); /* Clean yellow gradient */
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(320deg, rgb(103, 58, 183), rgb(63, 81, 181)); /* Clean, subtle gradient */
     color: white;
     overflow: hidden;
 }
 
-/* Add falling particles animation */
+/* Falling particles animation */
 @keyframes fall {
     from {
         opacity: 0;
@@ -25,22 +25,41 @@ html, body {
     top: 0;
     width: 5px;
     height: 5px;
-    background-color: yellow;
-    animation: fall 2s infinite ease-in;
+    background-color: #00B0F4; /* Adjusted to match theme */
+    animation: fall 3s infinite ease-in;
     pointer-events: none;
 }
 
 .falling-particle:nth-child(odd) {
-    animation-duration: 3s;
+    animation-duration: 4s;
 }
 
-/* Gradient background styling */
+/* Background and general styling */
+:root {
+    --background-image: url('https://i.imgur.com/EoXjMYQ.png'); /* Image used for background if needed */
+    --background-image-blur: 0px;
+    --background-image-size: cover;
+    --background-image-position: center;
+    --gradient-primary: 103, 58, 183; /* Adjusted for Crimson Red/Crimson Colors */
+    --gradient-secondary: 63, 81, 181; /* This stays blue as a secondary color */
+    --link-colour: #00B0F4; /* Adjusted to match theme */
+    --scrollbar-colour: rgb(255,255,255,0.05);
+    --gradient-direction: 320deg; /* Direction of gradient */
+    --tint-colour: 0, 0, 0;
+    --tint-brightness: 0.1;
+    --font: Poppins;
+    --window-padding: 0px;
+    --window-roundness: 0px;
+}
+
+/* Styling for the gradient background */
 body {
-    background: linear-gradient(135deg, #FFCC00, #FF9900, #FF6600);
+    background: linear-gradient(var(--gradient-direction), rgb(var(--gradient-primary)), rgb(var(--gradient-secondary))); /* Gradient from crimson to blue */
     position: relative;
+    overflow: hidden;
 }
 
-/* Styling for iframe to take up full screen */
+/* Full-screen iframe */
 iframe {
     width: 100%;
     height: 100vh;
@@ -71,7 +90,7 @@ html {
     margin-left: 40px;
 }
 
-/* Style for collapsing sections */
+/* Style for collapsed sections */
 details {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
