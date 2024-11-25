@@ -1,102 +1,80 @@
-/* General styles */
-html, body {
-    height: 100%;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(320deg, rgb(103, 58, 183), rgb(63, 81, 181)); /* Clean, subtle gradient */
-    color: white;
-    overflow: hidden;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap');
+@import url('https://discordstyles.github.io/FrostedGlass/dist/FrostedGlass.css');
+@import url('https://discordstyles.github.io/Addons/windows-titlebar.css');
 
-/* Falling particles animation */
-@keyframes fall {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(100vh);
-    }
-}
-
-.falling-particle {
-    position: fixed;
-    top: 0;
-    width: 5px;
-    height: 5px;
-    background-color: #00B0F4; /* Adjusted to match theme */
-    animation: fall 3s infinite ease-in;
-    pointer-events: none;
-}
-
-.falling-particle:nth-child(odd) {
-    animation-duration: 4s;
-}
-
-/* Background and general styling */
 :root {
-    --background-image: url('https://i.imgur.com/EoXjMYQ.png'); /* Image used for background if needed */
+    --background-image: url('https://i.imgur.com/EoXjMYQ.png'); /* Crimson background */
     --background-image-blur: 0px;
     --background-image-size: cover;
     --background-image-position: center;
-    --gradient-primary: 103, 58, 183; /* Adjusted for Crimson Red/Crimson Colors */
-    --gradient-secondary: 63, 81, 181; /* This stays blue as a secondary color */
-    --link-colour: #00B0F4; /* Adjusted to match theme */
+    --popout-image: var(--background-image);
+    --popout-image-blur: 5px;
+    --popout-image-size: cover;
+    --popout-image-position: center;
+    --overlay-image: var(--background-image);
+    --overlay-image-blur: 5px;
+    --overlay-image-size: cover;
+    --overlay-image-position: center;
+    --home-button-image: url('https://gibbu.github.io/BetterDiscord-Themes/FrostedGlass/assets/discord.svg');
+    --home-button-size: cover;
+    --home-button-position: center;
+    --serverlist-brightness: 0.8;
+    --left-brightness: 0.8;
+    --middle-brightness: 0.66;
+    --right-brightness: 0;
+    --overlay-brightness: 0.8;
+    --gradient-primary: 103,58,183; /* Crimson gradient */
+    --gradient-secondary: 63,81,181; /* Slightly darker crimson */
+    --link-colour: #00B0F4; /* Adjust link colors */
     --scrollbar-colour: rgb(255,255,255,0.05);
-    --gradient-direction: 320deg; /* Direction of gradient */
-    --tint-colour: 0, 0, 0;
+    --gradient-direction: 320deg;
+    --tint-colour: 0,0,0;
     --tint-brightness: 0.1;
     --font: Poppins;
     --window-padding: 0px;
     --window-roundness: 0px;
+    --update-notice-1: none;
 }
 
-/* Styling for the gradient background */
+/* Additional Site Styling */
 body {
-    background: linear-gradient(var(--gradient-direction), rgb(var(--gradient-primary)), rgb(var(--gradient-secondary))); /* Gradient from crimson to blue */
-    position: relative;
-    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--background-image);
+    background-size: var(--background-image-size);
+    background-position: var(--background-image-position);
+    color: white;
 }
 
-/* Full-screen iframe */
+/* Iframe Styling */
 iframe {
     width: 100%;
     height: 100vh;
     border: none;
+    z-index: 1;
 }
 
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
+/* Falling Particles Canvas */
+canvas#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
 }
 
-/* Centering content */
-.centered-text {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.small-centered-text {
-    font-size: 10px;
-    text-align: center;
-}
-
-.indented {
-    margin-left: 20px;
-}
-
-.indented2 {
-    margin-left: 40px;
-}
-
-/* Style for collapsed sections */
-details {
-    background-color: rgba(255, 255, 255, 0.1);
+/* Hyperlink Customization */
+a {
+    color: var(--link-colour);
+    text-decoration: none;
+    border: 2px solid white;
+    padding: 5px 10px;
     border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
-    color: white;
-    position: relative;
-    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background: white;
+    color: var(--gradient-primary);
 }
