@@ -81,16 +81,3 @@ details {
     position: relative;
     z-index: 2;
 }
-
-/* Remove black overlay */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: none; /* Removed gradient image */
-    z-index: 1;
-    pointer-events: none;
-}
