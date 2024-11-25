@@ -1,81 +1,165 @@
 <!DOCTYPE HTML>
-<HTML>
-    <head>
-        <title>Cloaking...</title>
-        <link rel="icon" type="image/x-icon" href="..\Images\Drifter.png">
-        <link rel="stylesheet" type="text/css" href="stylez.css">
-        <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Centered Small Text</title>
-        <style>
-            .small-centered-text {
-                font-size: 10px;
-                text-align: center;
-            }
-        </style>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Centered Text</title>
-        <style>
-            .centered-text {
-                text-align: center;
-            }
-        </style>
-        <title>Small Text</title>
-        <style>
-            .small-text {
-                font-size: 10px;
-            }
-        </style>
-        <style>
-            .indented {
-                margin-left: 20px;
-            }
-        </style>
-        <style>
-            .indented2 {
-                margin-left: 40px;
-            }
-        </style>
-    </head>
+<html lang="en">
+<head>
+    <title>Cloaking...</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Drifter.png">
+    <link rel="stylesheet" type="text/css" href="stylez.css">
+    <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Gradient Background & Falling Particles */
+        @font-face {
+            font-family: 'Yatra One';
+            src: url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
+        }
+
+        @font-face {
+            font-family: 'Eagle Lake';
+            src: url('https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Yatra One', sans-serif;
+            color: white;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Dynamic gradient */
+            background-attachment: fixed;
+            overflow-y: auto; /* Enable scrolling */
+        }
+
+        /* Add falling particle container */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Gradient overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+            z-index: 2;
+        }
+
+        /* iframe styling */
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+            z-index: 3; /* Ensure iframe is on top */
+        }
+    </style>
+</head>
+<body>
     <audio id="background-music" src="Audio\NeverGonnaGiveYouUp.mp3" autoplay loop></audio>
-    <body>
-        <p class="centered-text"><img src="Images\NeverGonnaGIFYouUp.gif" alt="You know the rules, & so do I.." width="500" height="500"></p>
-        <script>
-            const htmlContent = `
-                <!DOCTYPE HTML>
-                <HTML lang="en">
-                <head>
-                    <title>New Tab</title>
-                    <link rel="stylesheet" type="text/css" href="stylez.css">
-                    <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
-                    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <style>
-                        html, body {
-                            height: 100%;
-                            margin: 0;
-                        }
-                        iframe {
-                            width: 100%;
-                            height: 100vh;
-                            border: none;
-                        }
-                   </style>
-                </head>
-                <body>
-                    <iframe src="https://diddy-with-baby-oil.github.io/The-Wagon-Site/Pages/Home.html"></iframe>
-                </body>
-                </HTML>
-            `;
-            const blob = new Blob([htmlContent], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
+
+    <!-- Falling particles effect -->
+    <script>
+        const canvas = document.createElement('canvas');
+        document.body.appendChild(canvas);
+        canvas.id = "particles";
+        const ctx = canvas.getContext('2d');
+
+        let particles = [];
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+
+        function createParticle() {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 3 + 1,
+                speed: Math.random() * 1.5 + 0.5,
+                opacity: Math.random() * 0.5 + 0.5
+            };
+        }
+
+        function updateParticles() {
+            particles.forEach((particle, index) => {
+                particle.y += particle.speed;
+                if (particle.y > canvas.height) particles[index] = createParticle();
+            });
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${particle.opacity})`;
+                ctx.fill();
+            });
+        }
+
+        function animateParticles() {
+            updateParticles();
+            drawParticles();
+            requestAnimationFrame(animateParticles);
+        }
+
+        // Generate initial particles
+        for (let i = 0; i < 100; i++) {
+            particles.push(createParticle());
+        }
+
+        animateParticles();
+    </script>
+
+    <!-- Your iframe content -->
+    <iframe src="https://diddy-with-baby-oil.github.io/The-Wagon-Site/Pages/Home.html"></iframe>
+
+    <script>
+        const htmlContent = `
+            <!DOCTYPE HTML>
+            <html lang="en">
+            <head>
+                <title>New Tab</title>
+                <link rel="stylesheet" type="text/css" href="stylez.css">
+                <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                    html, body {
+                        height: 100%;
+                        margin: 0;
+                    }
+                    iframe {
+                        width: 100%;
+                        height: 100vh;
+                        border: none;
+                    }
+                </style>
+            </head>
+            <body>
+                <iframe src="https://diddy-with-baby-oil.github.io/The-Wagon-Site/Pages/Home.html"></iframe>
+            </body>
+            </html>
+        `;
+        const blob = new Blob([htmlContent], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+        window.location.replace(url);
+        setTimeout(function() {
             window.location.replace(url);
-            setTimeout(function() {
-                window.location.replace(url);
-            }, 3000);
-        </script>
-    </body>
-</HTML>
+        }, 3000);
+    </script>
+</body>
+</html>
