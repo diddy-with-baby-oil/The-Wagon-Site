@@ -1,76 +1,135 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<HTML>
 <head>
-    <title>Crimson Cloaking...</title>
+    <title>The Wagon Site</title>
     <link rel="icon" type="image/x-icon" href="..\Images\Drifter.png">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="stylez.css">
     <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Eagle Lake', cursive;
+            background-color: #000; /* Black background */
+            color: #FFD700; /* Gold text */
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 250px;
+            background-color: #1a1a1a; /* Dark sidebar */
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            height: 100%;
+        }
+
+        .sidebar h1 {
+            color: #FFD700;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #FFD700;
+            display: block;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #FFD700;
+            color: #000;
+        }
+
+        /* Content section */
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+            width: calc(100% - 270px);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+
+        .centered-text img {
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
     <audio id="background-music" src="Audio\NeverGonnaGiveYouUp.mp3" autoplay loop></audio>
 
-    <!-- Falling particles effect -->
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h1>THE WAGON SITE</h1>
+        <a href="https://diddy-with-baby-oil.github.io/The-Wagon-Site/Pages/Home.html">Home</a>
+        <a href="#Bookmarkllection">Bookmarkllection</a>
+        <a href="#BypassingKitsGuide">Bypassing Kits Guide</a>
+        <a href="#BypassersChromekit">Bypasser's Chromekit</a>
+        <a href="#BypassersWindowskit">Bypasser's Windowskit</a>
+        <a href="#CargoWagon">CargoWagon</a>
+        <a href="#Gamellection">Gamellection</a>
+        <a href="#ProxList">ProxList</a>
+        <a href="#Questions">Questions</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <p class="centered-text">
+            <img src="Images\NeverGonnaGIFYouUp.gif" alt="You know the rules, & so do I.." width="500" height="500">
+        </p>
+        <iframe id="main-frame" src="https://the-wagonization.github.io/The-Wagon-Site/Pages/Home.html"></iframe>
+    </div>
+
     <script>
-        const canvas = document.createElement('canvas');
-        document.body.appendChild(canvas);
-        canvas.id = "particles";
-        const ctx = canvas.getContext('2d');
+        // Generate Blob URL dynamically
+        const htmlContent = `
+            <!DOCTYPE HTML>
+            <HTML lang="en">
+            <head>
+                <title>New Tab</title>
+                <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                    html, body {
+                        height: 100%;
+                        margin: 0;
+                        background-color: #000;
+                    }
+                    iframe {
+                        width: 100%;
+                        height: 100vh;
+                        border: none;
+                    }
+               </style>
+            </head>
+            <body>
+                <iframe src="https://the-wagonization.github.io/The-Wagon-Site/Pages/Home.html"></iframe>
+            </body>
+            </HTML>
+        `;
 
-        let particles = [];
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        const blob = new Blob([htmlContent], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-
-        function createParticle() {
-            return {
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                radius: Math.random() * 3 + 1,
-                speed: Math.random() * 1.5 + 0.5,
-                opacity: Math.random() * 0.5 + 0.5
-            };
-        }
-
-        function updateParticles() {
-            particles.forEach((particle, index) => {
-                particle.y += particle.speed;
-                if (particle.y > canvas.height) particles[index] = createParticle();
-            });
-        }
-
-        function drawParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(particle => {
-                ctx.beginPath();
-                ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${particle.opacity})`;
-                ctx.fill();
-            });
-        }
-
-        function animateParticles() {
-            updateParticles();
-            drawParticles();
-            requestAnimationFrame(animateParticles);
-        }
-
-        // Generate initial particles
-        for (let i = 0; i < 100; i++) {
-            particles.push(createParticle());
-        }
-
-        animateParticles();
+        // Redirect to the Blob URL
+        setTimeout(() => {
+            window.location.replace(url);
+        }, 3000);
     </script>
-
-    <!-- Main content -->
-    <iframe src="https://diddy-with-baby-oil.github.io/The-Wagon-Site/Pages/Home.html"></iframe>
 </body>
-</html>
+</HTML>
