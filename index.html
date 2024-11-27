@@ -1,132 +1,110 @@
 <!DOCTYPE HTML>
-<HTML>
-    <head>
-        <title>Cloaking...</title>
-        <link rel="icon" type="image/x-icon" href="..\Images\Drifter.png">
-        <link rel="stylesheet" type="text/css" href="stylez.css">
-        <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            html, body {
-                margin: 0;
-                padding: 0;
-                height: 100%;
-                overflow: hidden;
-            }
-            #particles-js {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background-color: black;
-                z-index: 0;
-            }
-            .centered-content {
-                position: relative;
-                z-index: 1;
-                text-align: center;
-            }
-        </style>
-    </head>
-    <audio id="background-music" src="Audio\NeverGonnaGiveYouUp.mp3" autoplay loop></audio>
-    <body>
-        <div id="particles-js"></div>
-        <div class="centered-content">
-            <p>
-                <img src="Images\NeverGonnaGIFYouUp.gif" alt="You know the rules, & so do I.." width="500" height="500">
-            </p>
+<html lang="en">
+<head>
+    <title>Cloaking...</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Drifter.png">
+    <link rel="stylesheet" type="text/css" href="stylez.css">
+    <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Centered content style */
+        .centered-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Falling Particles -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <!-- Centered Content -->
+    <div class="centered-content">
+        <p>
+            <img src="Images\NeverGonnaGIFYouUp.gif" alt="You know the rules, & so do I.." width="500" height="500">
+        </p>
+        
+        <!-- Example Cards -->
+        <div class="card">
+            <h1>Card Title 1</h1>
+            <p>Description of the content in this card.</p>
+            <button class="card-button">Click Me</button>
         </div>
-        <script>
-            const htmlContent = `
-                <!DOCTYPE HTML>
-                <HTML lang="en">
-                <head>
-                    <title>New Tab</title>
-                    <link rel="stylesheet" type="text/css" href="stylez.css">
-                    <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
-                    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <style>
-                        html, body {
-                            height: 100%;
-                            margin: 0;
-                        }
-                        #particles-js {
-                            position: absolute;
-                            width: 100%;
-                            height: 100%;
-                            z-index: 0;
-                        }
-                        iframe {
-                            width: 100%;
-                            height: 100vh;
-                            border: none;
-                        }
-                        .centered-content {
-                            position: relative;
-                            z-index: 1;
-                            text-align: center;
-                        }
-                    </style>
-                </head>
-                <body>
-                    <div id="particles-js"></div>
-                    <div class="centered-content">
-                        <p>
-                            <img src="Images/NeverGonnaGIFYouUp.gif" alt="You know the rules, & so do I.." width="500" height="500">
-                        </p>
-                    </div>
-                    <script src="particles.js"></script>
-                    <script>
-                        /* Initialize particles.js */
-                        particlesJS('particles-js', {
-                            "particles": {
-                                "number": {
-                                    "value": 80,
-                                    "density": {
-                                        "enable": true,
-                                        "value_area": 800
-                                    }
-                                },
-                                "color": {
-                                    "value": "#ffffff"
-                                },
-                                "shape": {
-                                    "type": "circle"
-                                },
-                                "opacity": {
-                                    "value": 0.5
-                                },
-                                "size": {
-                                    "value": 3,
-                                    "random": true
-                                },
-                                "line_linked": {
-                                    "enable": true,
-                                    "distance": 150,
-                                    "color": "#ffffff",
-                                    "opacity": 0.4,
-                                    "width": 1
-                                },
-                                "move": {
-                                    "enable": true,
-                                    "speed": 3,
-                                    "direction": "none",
-                                    "random": false,
-                                    "straight": false
-                                }
-                            }
-                        });
-                    </script>
-                </body>
-                </HTML>
-            `;
-            const blob = new Blob([htmlContent], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
-            window.location.replace(url);
-        </script>
-        <script src="particles.js"></script>
-    </body>
-</HTML>
+
+        <div class="card">
+            <h1>Card Title 2</h1>
+            <p>Description of the content in this card.</p>
+            <button class="card-button">Click Me</button>
+        </div>
+
+        <div class="card">
+            <h1>Card Title 3</h1>
+            <p>Description of the content in this card.</p>
+            <button class="card-button">Click Me</button>
+        </div>
+    </div>
+    
+    <audio id="background-music" src="Audio\NeverGonnaGiveYouUp.mp3" autoplay loop></audio>
+
+    <script>
+        const htmlContent = `
+            <!DOCTYPE HTML>
+            <html lang="en">
+            <head>
+                <title>New Tab</title>
+                <link rel="stylesheet" type="text/css" href="stylez.css">
+                <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                    html, body {
+                        height: 100%;
+                        margin: 0;
+                    }
+                    iframe {
+                        width: 100%;
+                        height: 100vh;
+                        border: none;
+                    }
+                    .centered-content {
+                        position: relative;
+                        z-index: 1;
+                        text-align: center;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="centered-content">
+                    <p>
+                        <img src="Images/NeverGonnaGIFYouUp.gif" alt="You know the rules, & so do I.." width="500" height="500">
+                    </p>
+                </div>
+            </body>
+            </html>
+        `;
+        const blob = new Blob([htmlContent], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+        window.location.replace(url);
+    </script>
+</body>
+</html>
